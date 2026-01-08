@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fundo com transparência real -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#80FFFFFF"/> <!-- 50% de transparência -->
+            <corners android:radius="24dp"/>
+        </shape>
+    </item>
+
+    <!-- Gradiente de brilho no topo -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#33FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:angle="90"/>
+            <corners android:radius="24dp"/>
+        </shape>
+    </item>
+
+</layer-list>

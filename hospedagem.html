@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospedagem em Tupã</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --verde:#2D5F4C;
+    --bg:#F3EBDB;
+    --card:#EDDBB8;
+    --texto:#212121;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    padding-bottom:70px;
+}
+
+/* TOPO */
+header{
+    height:60px;
+    background:var(--verde);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    justify-content:center;
+    background:#FDF0D7;
+}
+
+.tabs button{
+    flex:1;
+    padding:12px;
+    border:none;
+    background:none;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.tabs button.active{
+    color:#C9A24D;
+    border-bottom:3px solid #C9A24D;
+}
+
+/* CONTEÚDO */
+main{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.hero img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:10px;
+}
+
+.intro{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+hr{
+    margin:10px 0 20px;
+}
+
+/* CARD */
+.card{
+    background:var(--card);
+    border-radius:18px;
+    padding:15px;
+    margin-bottom:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.images{
+    display:flex;
+    gap:10px;
+}
+
+.images img{
+    width:50%;
+    height:150px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.details{
+    background:var(--verde);
+    color:#ccc;
+    border-radius:14px;
+    padding:12px;
+    margin-top:12px;
+}
+
+.details p{
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.route{
+    margin-top:10px;
+    display:block;
+    width:100%;
+    padding:10px;
+    text-align:center;
+    background:#C9A24D;
+    color:#000;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:56px;
+    background:var(--verde);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+footer a{
+    color:#fff;
+    font-size:18px;
+    text-decoration:none;
+}
+
+/* VISIBILIDADE */
+.section{ display:none; }
+.section.active{ display:block; }
+</style>
+
+<script>
+function showTab(tab){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+    document.getElementById(tab+'Btn').classList.add('active');
+}
+</script>
+
+</head>
+
+<body>
+
+<header>Hospedagem em Tupã</header>
+
+<div class="tabs">
+    <button id="hoteisBtn" class="active" onclick="showTab('hoteis')">Hotéis</button>
+    <button id="pousadasBtn" onclick="showTab('pousadas')">Pousadas</button>
+    <button id="campingBtn" onclick="showTab('camping')">Camping</button>
+</div>
+
+<main>
+
+<div class="hero">
+    <img src="imgs/bg_casa.jpg">
+</div>
+
+<p class="intro">
+    Aqui está todas as hospedagens de Tupã: Hotéis, Pousadas e Campings
+</p>
+
+<hr>
+
+<!-- HOTÉIS -->
+<section id="hoteis" class="section active">
+
+<div class="card">
+<h2>Cazuza Palace Hotel</h2>
+<div class="images">
+<img src="imgs/img_hotel_cazuza.jpg">
+<img src="imgs/img_hotel_cazuza_interior.jpg">
+</div>
+<div class="details">
+<p>• Wi-Fi, café da manhã incluso</p>
+<p>• Endereço: Rua Nhambiquaras, 150</p>
+<p>• Telefone: (14) 3441-1234</p>
+<p>• R$130 a R$190</p>
+</div>
+<a class="route" href="https://www.google.com/maps/search/Cazuza+Palace+Hotel+Tupã" target="_blank">📍 Obter Rota</a>
+</div>
+
+<div class="card">
+<h2>Hotel Avenida</h2>
+<div class="images">
+<img src="imgs/img_hotelavenidafrente.jpg">
+<img src="imgs/img_quartohotelavenida.jpg">
+</div>
+<div class="details">
+<p>• Restaurante e recepção 24h</p>
+<p>• Rua Caingangs, 200</p>
+<p>• (14) 3441-5678</p>
+<p>• R$160 a R$230</p>
+</div>
+<a class="route" href="https://www.google.com/maps/search/Hotel+Avenida+Tupã" target="_blank">📍 Obter Rota</a>
+</div>
+
+</section>
+
+<!-- POUSADAS -->
+<section id="pousadas" class="section">
+
+<div class="card">
+<h2>Pousada do Rancho</h2>
+<div class="images">
+<img src="imgs/vistaaerea8.jpg">
+<img src="imgs/vistaaerea9.jpg">
+</div>
+<div class="details">
+<p>• Wi-Fi e café da manhã</p>
+<p>• Rua da Encruzilhada, 666</p>
+<p>• (66) 6666-6666</p>
+</div>
+<a class="route" href="#">📍 Obter Rota</a>
+</div>
+
+</section>
+
+<!-- CAMPING -->
+<section id="camping" class="section">
+
+<div class="card">
+<h2>Camping na Mata</h2>
+<div class="images">
+<img src="imgs/cachu_santa_aberto.jpg">
+<img src="imgs/cachoeira_santaestela.jpg">
+</div>
+<div class="details">
+<p>• Área natural</p>
+<p>• Cachoeira Santa Estela</p>
+</div>
+<a class="route" href="#">📍 Obter Rota</a>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<a href="index.html">🏠 Voltar</a>
+</footer>
+
+</body>
+</html>

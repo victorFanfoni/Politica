@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lendas e Quiz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#F3EBDB;
+    --toolbar:#FAE8BF;
+    --tab:#FDF0D7;
+    --dourado:#C9A24D;
+    --ok:#7BC96F;
+    --erro:#E57373;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    padding-bottom:70px;
+}
+
+header{
+    background:var(--toolbar);
+    padding:16px;
+    text-align:center;
+    font-size:19px;
+    font-weight:600;
+    border-bottom:1px solid #000;
+}
+
+.tabs{
+    display:flex;
+    background:var(--tab);
+    border-bottom:1px solid #000;
+}
+
+.tabs button{
+    flex:1;
+    padding:12px;
+    border:none;
+    background:none;
+    font-weight:600;
+    cursor:pointer;
+    color:#777;
+}
+
+.tabs button.active{
+    color:var(--dourado);
+    border-bottom:3px solid var(--dourado);
+}
+
+.score{
+    text-align:center;
+    padding:12px;
+    font-size:17px;
+    border-bottom:1px solid #000;
+}
+
+main{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    line-height:1.6;
+    color:#444;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 18px;
+    background:var(--dourado);
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.btn.alt{
+    width:100%;
+    margin:8px 0;
+    background:#eee;
+}
+
+.correct{background:var(--ok)!important;}
+.wrong{background:var(--erro)!important;}
+
+.section{display:none;}
+.section.active{display:block;}
+
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:56px;
+    background:var(--toolbar);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-top:1px solid #000;
+}
+
+footer a{
+    text-decoration:none;
+    color:#000;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Lendas e Quiz</header>
+
+<div class="tabs">
+    <button class="active" onclick="showTab('lendas')">Lendas</button>
+    <button onclick="showTab('quiz')">Quiz</button>
+    <button onclick="showTab('ranking')">Ranking</button>
+</div>
+
+<div class="score">
+    Pontuação: <strong id="score">0</strong>
+</div>
+
+<main>
+
+<!-- LENDAS -->
+<section id="lendas" class="section active">
+
+<div class="card">
+<h3>Lenda da Índia Vanuíre</h3>
+<p>
+Vanuíre foi uma indígena Kaingang que ajudou a promover a paz entre seu povo
+e os colonizadores. Sua coragem e sabedoria fizeram dela um símbolo de respeito
+e conciliação em Tupã.
+</p>
+</div>
+
+<div class="card">
+<h3>Lenda da Serra de Tupã</h3>
+<p>
+Diz a tradição indígena que espíritos antigos habitavam as serras da região,
+protegendo a terra contra aqueles que não respeitavam a natureza.
+</p>
+</div>
+
+<div class="card">
+<h3>Lenda do Trovão (Tupã)</h3>
+<p>
+Na mitologia tupi-guarani, Tupã é o espírito do trovão, responsável pela criação
+do mundo e pela proteção da humanidade através da força da natureza.
+</p>
+</div>
+
+<div class="card">
+<h3>Lenda do Rio do Peixe</h3>
+<p>
+Conta-se que o Rio do Peixe era sagrado para os povos indígenas, pois acreditavam
+que suas águas eram protegidas por espíritos que garantiam fartura e vida.
+</p>
+</div>
+
+<div class="card">
+<h3>Lenda da Árvore Sagrada</h3>
+<p>
+Uma grande árvore da região era considerada sagrada. Diziam que quem a respeitasse
+receberia proteção, mas quem a ferisse enfrentaria infortúnios.
+</p>
+</div>
+
+<div class="card">
+<h3>Lenda dos Espíritos da Mata</h3>
+<p>
+Os indígenas acreditavam que a mata era habitada por espíritos protetores que
+guiavam os viajantes e castigavam aqueles que destruíam a floresta.
+</p>
+</div>
+
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="section">
+<div class="card">
+<h3>Escolha o modo</h3>
+<button class="btn" onclick="startQuiz('normal')">Quiz Cultural</button>
+<button class="btn" onclick="startQuiz('kids')">Modo Infantil</button>
+</div>
+</section>
+
+<section id="quizPlay" class="section">
+<div class="card">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<button class="btn" id="nextBtn" onclick="nextQuestion()" style="display:none">
+Próxima
+</button>
+</div>
+</section>
+
+<section id="quizEnd" class="section">
+<div class="card">
+<h3>Parabéns!</h3>
+<h2 id="finalScore"></h2>
+<button class="btn" onclick="showTab('quiz')">Voltar</button>
+</div>
+</section>
+
+<!-- RANKING -->
+<section id="ranking" class="section">
+<div class="card">
+<h3>Maria</h3>
+<p>1200 pontos</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<a href="index.html">Voltar</a>
+</footer>
+
+<script>
+const quizKids=[
+ {q:"Tupã é uma",a:["Cidade","Animal"],c:0},
+ {q:"O museu famoso de Tupã chama",a:["Índia Vanuíre","Museu do Futebol"],c:0},
+ {q:"Tupã fica em São",a:["Paulo","Janeiro"],c:0}
+];
+
+let questions=[],current=0,score=0,isKids=false;
+
+function showTab(tab){
+ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+ document.getElementById(tab).classList.add('active');
+}
+
+function startQuiz(mode){
+ isKids = mode==='kids';
+ score=0;current=0;
+ questions=quizKids;
+ document.getElementById('score').innerText=score;
+ showTab('quizPlay');
+ loadQuestion();
+}
+
+function loadQuestion(){
+ const q=questions[current];
+ document.getElementById('question').innerText=q.q;
+ document.getElementById('answers').innerHTML=
+  q.a.map((a,i)=>`<button class="btn alt" onclick="answer(this,${i})">${a}</button>`).join('');
+ speakQuestion(q);
+}
+
+function speakQuestion(q){
+ if(!isKids) return;
+ let text = q.q + ". ";
+ q.a.forEach((alt,i)=>{
+   text += String.fromCharCode(65+i)+") "+alt+". ";
+ });
+ speak(text);
+}
+
+function answer(btn,i){
+ const correct=questions[current].c;
+ if(i===correct){
+  btn.classList.add('correct');
+  score+=50;
+  speak("Resposta correta");
+ }else{
+  btn.classList.add('wrong');
+  speak("Resposta errada");
+ }
+ document.getElementById('score').innerText=score;
+ document.getElementById('nextBtn').style.display='block';
+}
+
+function nextQuestion(){
+ current++;
+ if(current<questions.length){
+  loadQuestion();
+ }else{
+  showTab('quizEnd');
+  document.getElementById('finalScore').innerText=score+" estrelas";
+  speak("Parabéns! Você terminou o quiz!");
+ }
+}
+
+function speak(text){
+ const msg = new SpeechSynthesisUtterance(text);
+ msg.lang='pt-BR';
+ msg.rate=0.9;
+ speechSynthesis.cancel();
+ speechSynthesis.speak(msg);
+}
+</script>
+
+</body>
+</html>

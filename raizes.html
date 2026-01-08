@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raízes de Tupã • História</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#f4e3b2;
+    --primary:#8b5a00;
+    --accent:#e3b04b;
+    --card:#fff6dc;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:#333;
+}
+
+/* ===== HEADER / TOOLBAR ===== */
+header{
+    background:linear-gradient(90deg,#e2b25b,#d19a3d);
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+}
+
+.header-content{
+    max-width:1100px;
+    margin:auto;
+    padding:18px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+header h1{
+    font-size:22px;
+    font-weight:700;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px 60px;
+}
+
+/* ===== HERO ===== */
+.hero{
+    margin-bottom:35px;
+}
+
+.hero img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:22px;
+    box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+
+/* ===== INTRO ===== */
+.intro{
+    max-width:720px;
+    margin:0 auto 50px;
+    text-align:center;
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:var(--card);
+    border-radius:22px;
+    padding:32px;
+    margin-bottom:45px;
+    box-shadow:0 8px 22px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:var(--primary);
+    margin-bottom:22px;
+    font-size:20px;
+}
+
+/* ===== GALERIA ===== */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+    margin-bottom:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+/* ===== TEXTO ===== */
+.card p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* ===== BOTÃO ===== */
+.btn{
+    margin:26px auto 0;
+    display:block;
+    max-width:320px;
+    padding:15px;
+    background:var(--accent);
+    border:none;
+    border-radius:18px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#d19a3d;
+    transform:translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#d19a3d;
+    padding:24px;
+    text-align:center;
+    font-size:14px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media(max-width:768px){
+    header h1{
+        font-size:20px;
+    }
+
+    .hero img{
+        height:220px;
+    }
+
+    .card{
+        padding:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>📖 História de Tupã • São Paulo</h1>
+    </div>
+</header>
+
+<section class="container">
+
+    <div class="hero">
+        <img src="imgs/img_city_icon.jpg" alt="Cidade de Tupã">
+    </div>
+
+    <p class="intro">
+        Conheça a trajetória histórica de Tupã, desde sua fundação até os dias atuais,
+        marcada por resistência indígena, desenvolvimento agrícola e identidade cultural.
+    </p>
+
+    <!-- FUNDAÇÃO -->
+    <div class="card">
+        <h2>📅 Fundação e origem do nome</h2>
+
+        <div class="gallery">
+            <img src="imgs/primeiravistapanoramicadetupa.jpg">
+            <img src="imgs/residenciadofundadordacidadeluizdesouzaleao.jpg">
+            <img src="imgs/deus_tupa.png">
+        </div>
+
+        <p>
+            • Fundada oficialmente em 12 de outubro de 1929 por Luís de Sousa Leão.<br><br>
+            • O nome Tupã, de origem tupi-guarani, representa o trovão e o espírito protetor.
+        </p>
+
+        <button class="btn">🔎 Ver mais sobre a Fundação</button>
+    </div>
+
+    <!-- CONFLITOS -->
+    <div class="card">
+        <h2>⚔️ Conflitos e pacificação indígena</h2>
+
+        <div class="gallery">
+            <img src="imgs/resistencia_indigena.jpg">
+            <img src="imgs/resistencia.jpg">
+            <img src="imgs/pacificacao_indigena.png">
+        </div>
+
+        <p>
+            • Resistência dos povos caingangues à colonização.<br><br>
+            • Mediação histórica da índia Vanuíre, símbolo de pacificação.
+        </p>
+
+        <button class="btn">⚔️ Saber mais sobre os conflitos</button>
+    </div>
+
+    <!-- POLÍTICA -->
+    <div class="card">
+        <h2>🏛 Estrutura política e urbana</h2>
+
+        <div class="gallery">
+            <img src="imgs/vistaaerea9.jpg">
+            <img src="imgs/mapa_municipio_tupan.jpg">
+            <img src="imgs/tupan1948fotogalante.jpg">
+        </div>
+
+        <p>
+            • Distrito em 1934, município em 1938.<br>
+            • Expansão urbana com Varpa, Iacri e Arco-Íris.
+        </p>
+
+        <button class="btn">🏛 Ver estrutura política</button>
+    </div>
+
+    <!-- ECONOMIA -->
+    <div class="card">
+        <h2>🌱 Economia e desenvolvimento</h2>
+
+        <div class="gallery">
+            <img src="imgs/plantacao_cafe.jpg">
+            <img src="imgs/plantacao_amendoim.png">
+            <img src="imgs/platacao_algodao.webp">
+        </div>
+
+        <p>
+            • Base econômica inicial no café.<br>
+            • Diversificação após a geada de 1975.
+        </p>
+
+        <button class="btn">📈 Evolução da economia</button>
+    </div>
+
+    <!-- ATUALIDADE -->
+    <div class="card">
+        <h2>📊 Tupã hoje</h2>
+
+        <div class="gallery">
+            <img src="imgs/igreja_matriz_de_sao_pedro_em_tupa.jpg">
+            <img src="imgs/cidade.jpg">
+            <img src="imgs/paco.jpg">
+        </div>
+
+        <p>
+            • Cerca de 65 mil habitantes.<br>
+            • Capital Nacional da Fotografia.<br>
+            • Polo regional cultural e turístico.
+        </p>
+
+        <button class="btn">📊 Ver dados atuais</button>
+    </div>
+
+</section>
+
+<footer>
+    Conteúdo adaptado por Victor Fanfoni • 📍 Tupã – Capital Nacional da Fotografia
+</footer>
+
+</body>
+</html>

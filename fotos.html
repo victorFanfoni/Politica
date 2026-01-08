@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeria • Tupã</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#FDF0D7;
+    --verde:#2D5F4C;
+    --dourado:#C89B3C;
+    --card:#FFF6E5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    padding-bottom:70px;
+}
+
+/* HEADER */
+header{
+    height:60px;
+    background:var(--verde);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-weight:600;
+    font-size:18px;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:14px;
+}
+
+.tabs button{
+    background:none;
+    border:none;
+    font-size:15px;
+    font-weight:600;
+    color:var(--dourado);
+    padding-bottom:6px;
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+}
+
+.tabs button.active{
+    border-color:var(--dourado);
+}
+
+/* HERO */
+.hero{
+    margin:10px 16px;
+}
+
+.hero img{
+    width:100%;
+    height:160px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+
+/* GALERIA */
+.gallery{
+    padding:16px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:14px;
+}
+
+.photo{
+    background:var(--card);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.photo:hover{
+    transform:scale(1.04);
+}
+
+.photo img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+}
+
+/* FOOTER */
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:56px;
+    background:var(--verde);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+footer a{
+    text-decoration:none;
+    color:#fff;
+    font-size:17px;
+}
+</style>
+</head>
+
+<body>
+
+<header>📸 Galeria Histórica de Tupã</header>
+
+<div class="tabs">
+    <button class="active" onclick="trocarGaleria('antiga', this)">Fotos Antigas</button>
+    <button onclick="trocarGaleria('atual', this)">Fotos Atualizadas</button>
+</div>
+
+<div class="hero">
+    <img src="imgs/img_camera_galeria.jpg" alt="Galeria Tupã">
+</div>
+
+<div class="gallery">
+
+    <!-- ================= FOTOS ANTIGAS ================= -->
+    <div class="photo antiga"><img src="imgs/calendarioaeroportomunicipaldetupa.jpg"></div>
+    <div class="photo antiga"><img src="imgs/casacomcerca.jpg"></div>
+    <div class="photo antiga"><img src="imgs/casacomquintalepessoasnaporta.jpg"></div>
+    <div class="photo antiga"><img src="imgs/avenida_tamoyo_primeira.jpg"></div>
+    <div class="photo antiga"><img src="imgs/edificiomarajoara1940.jpg"></div>
+    <div class="photo antiga"><img src="imgs/avenida_tamoyo_pterceira.jpg"></div>
+    <div class="photo antiga"><img src="imgs/avenida_tamoyo_quarta.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_avenida.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_avenida_colorida.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_escola.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_lata_oleodeamendoin.jpg"></div>
+    <div class="photo antiga"><img src="imgs/esctitoriodaempresademelhoramentos.jpg"></div>
+    <div class="photo antiga"><img src="imgs/estacaocomtrem.jpg"></div>
+    <div class="photo antiga"><img src="imgs/estacaodetremcompessoas.jpg"></div>
+    <div class="photo antiga"><img src="imgs/estacaorodoviariadacidadedetupa.jpg"></div>
+    <div class="photo antiga"><img src="imgs/estacaorodoviariajulho1938.jpg"></div>
+    <div class="photo antiga"><img src="imgs/estradatupa1940.jpg"></div>
+    <div class="photo antiga"><img src="imgs/fotoaerea5.jpg"></div>
+    <div class="photo antiga"><img src="imgs/fotoemgrupo1945.jpg"></div>
+    <div class="photo antiga"><img src="imgs/fotoemgrupocomaviao.jpg"></div>
+    <div class="photo antiga"><img src="imgs/fotoemgrupoemgalpao.jpg"></div>
+    <div class="photo antiga"><img src="imgs/fotoemgruponaestacaodetrem.jpg"></div>
+    <div class="photo antiga"><img src="imgs/grupoemfrenteaumgalpao.jpg"></div>
+    <div class="photo antiga"><img src="imgs/homensechamine.jpg"></div>
+    <div class="photo antiga"><img src="imgs/leao.jpg"></div>
+    <div class="photo antiga"><img src="imgs/onibus.jpg"></div>
+    <div class="photo antiga"><img src="imgs/onibusviacaoaltapaulista.jpg"></div>
+    <div class="photo antiga"><img src="imgs/originalresidenciaemtupanago33.jpg"></div>
+    <div class="photo antiga"><img src="imgs/pessoasecarrosemfrenteaestacao.jpg"></div>
+    <div class="photo antiga"><img src="imgs/pessoasnaestacaocomtrem.jpg"></div>
+    <div class="photo antiga"><img src="imgs/pessoasnaponte1.jpg"></div>
+    <div class="photo antiga"><img src="imgs/pessoasnaponte2.jpg"></div>
+    <div class="photo antiga"><img src="imgs/postodecima.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_posto_angulodiferente.jpg"></div>
+    <div class="photo antiga"><img src="imgs/tupan1948fotogalante.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_cine_tupa.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_bar_restaurante_avenida.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_banco_noroeste.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_predio_zyhs.jpg"></div>
+    <div class="photo antiga"><img src="imgs/img_centro_desaude.jpg"></div>
+    <div class="photo antiga"><img src="imgs/prediotamoytupanjulho1938.jpg"></div>
+    <div class="photo antiga"><img src="imgs/primeiravistapanoramicadetupa.jpg"></div>
+    <div class="photo antiga"><img src="imgs/residenciadofundadordacidadeluizdesouzaleao.jpg"></div>
+    <div class="photo antiga"><img src="imgs/tremdelonje.jpg"></div>
+    <div class="photo antiga"><img src="imgs/tupa.jpg"></div>
+    <div class="photo antiga"><img src="imgs/tupa3.jpg"></div>
+    <div class="photo antiga"><img src="imgs/tupaa.jpg"></div>
+    <div class="photo antiga"><img src="imgs/tupaem1944.jpg"></div>
+    <div class="photo antiga"><img src="imgs/umadas20pontes.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaerea3.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaerea4.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaerea6.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaerea7.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaerea8.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaerea9.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistaaereadetupa1945.jpg"></div>
+    <div class="photo antiga"><img src="imgs/vistadetupannovembrode1939.jpg"></div>
+
+    <!-- ================= FOTOS ATUAIS ================= -->
+    <div class="photo atual" style="display:none"><img src="imgs/cidade.jpg"></div>
+    <div class="photo atual" style="display:none"><img src="imgs/city.jpg"></div>
+    <div class="photo atual" style="display:none"><img src="imgs/vity.jpg"></div>
+    <div class="photo atual" style="display:none"><img src="imgs/tupa_estancia.jpg"></div>
+    <div class="photo atual" style="display:none"><img src="imgs/paco.jpg"></div>
+    <div class="photo atual" style="display:none"><img src="imgs/maxresdefault.jpg"></div>
+    <div class="photo atual" style="display:none"><img src="imgs/igreja_matriz_de_sao_pedro_em_tupa.jpg"></div>
+
+</div>
+
+<footer>
+    <a href="index.html">🏠 Voltar ao Início</a>
+</footer>
+
+<script>
+function trocarGaleria(tipo, btn){
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.photo').forEach(p=>p.style.display='none');
+    document.querySelectorAll('.'+tipo).forEach(p=>p.style.display='block');
+}
+</script>
+
+</body>
+</html>
