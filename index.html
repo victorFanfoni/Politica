@@ -1,68 +1,233 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade – Tupã+</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-            background-color: #fdfcf8;
-            color: #333;
-        }
-        h1 {
-            color: #006600;
-        }
-        h2 {
-            color: #444;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Tupã</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d19a3d">
+
+<!-- Fonte -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#f4e3b2;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(90deg,#e2b25b,#d19a3d);
+}
+
+.header-content{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:22px;
+    font-weight:700;
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#000;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    max-width:520px;
+    margin:40px auto;
+}
+
+.hero img{
+    width:100%;
+    display:block;
+    border-radius:18px;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px 20px 70px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+/* BOTÕES (IMAGENS) */
+.card{
+    display:block;
+    height: 150px;
+    width: 150px;
+    border-radius:16px;
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.card img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* HOVER */
+.card:hover{
+    transform:scale(1.04);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* DESTAQUE */
+.highlight{
+    display:block;
+    margin:55px auto 0;
+    max-width:550px;
+    border-radius:18px;
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.highlight img{
+    width:100%;
+    display:block;
+}
+
+.highlight:hover{
+    transform:scale(1.04);
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+
+/* FOOTER */
+footer{
+    background:#d19a3d;
+    padding:20px;
+    text-align:center;
+    font-size:14px;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+    .header-content{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Política de Privacidade</h1>
-    <p><strong>Última atualização:</strong> 24 de julho de 2025</p>
+<header>
+    <div class="header-content">
+        <h1>Explore Tupã</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="raizes.html">História</a>
+            <a href="trilhas.html">Turismo</a>
+            <a href="legado.html">Cultura</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </div>
+</header>
 
-    <p>O aplicativo <strong>Tupã+</strong> foi desenvolvido com o intuito de promover o turismo e a cultura da cidade de Tupã. Esta política de privacidade explica como suas informações são coletadas, usadas e protegidas.</p>
+<!-- IMAGEM TOPO -->
+<div class="hero">
+    <img src="imgs/igreja_matriz_de_sao_pedro_em_tupa.jpg" alt="Catedral de Tupã">
+</div>
 
-    <h2>1. Coleta de Informações</h2>
-    <p>O aplicativo pode coletar as seguintes informações:</p>
-    <ul>
-        <li><strong>Localização:</strong> utilizada para oferecer rotas culturais, mapas e pontos turísticos próximos. Nenhuma informação de localização é armazenada ou compartilhada.</li>
-        <li><strong>Conexão com a Internet:</strong> usada apenas para carregar conteúdos, imagens, mapas e dados do app.</li>
-    </ul>
+<section class="container">
 
-    <h2>2. Uso das Informações</h2>
-    <p>As informações coletadas são utilizadas exclusivamente para melhorar a experiência do usuário dentro do aplicativo, como por exemplo:</p>
-    <ul>
-        <li>Exibir atrações turísticas próximas à sua localização;</li>
-        <li>Carregar imagens e dados de forma dinâmica;</li>
-        <li>Oferecer uma navegação mais interativa e informativa.</li>
-    </ul>
+    <div class="grid">
 
-    <h2>3. Compartilhamento de Dados</h2>
-    <p>O aplicativo <strong>Tupã+</strong> não compartilha, vende ou transfere seus dados pessoais a terceiros.</p>
+        <a href="raizes.html" class="card">
+            <img src="imgs/bg_btn_historia_tupa.png" alt="Raízes de Tupã">
+        </a>
 
-    <h2>4. Armazenamento de Dados</h2>
-    <p>Este aplicativo não armazena dados pessoais no dispositivo do usuário nem em servidores externos.</p>
+        <a href="legado.html" class="card">
+            <img src="imgs/legado.png" alt="Legado Cultural">
+        </a>
 
-    <h2>5. Permissões do Aplicativo</h2>
-    <p>As permissões solicitadas são:</p>
-    <ul>
-        <li><strong>INTERNET:</strong> para acessar conteúdos online e imagens.</li>
-        <li><strong>ACCESS_FINE_LOCATION:</strong> para obter localização precisa, usada em mapas e rotas.</li>
-        <li><strong>ACCESS_COARSE_LOCATION:</strong> para obter localização aproximada, quando a localização precisa não estiver disponível.</li>
-    </ul>
+        <a href="trilhas.html" class="card">
+            <img src="imgs/bg_btn_trilha.png" alt="Trilhas e Natureza">
+        </a>
 
-    <h2>6. Segurança</h2>
-    <p>O desenvolvedor implementa boas práticas de segurança para proteger os dados do usuário. Nenhuma informação sensível é coletada.</p>
+        <a href="orgaos.html" class="card">
+            <img src="imgs/organs_publicos.png" alt="Órgãos Públicos">
+        </a>
 
-    <h2>7. Contato</h2>
-    <p>Em caso de dúvidas sobre esta política, entre em contato pelo e-mail: <strong>victorfanfoni.dev@gmail.com</strong></p>
+        <a href="fotos.html" class="card">
+            <img src="imgs/bg_btn_fotos_antigas.png" alt="Fotos Históricas">
+        </a>
 
-    <p>Ao utilizar o aplicativo Tupã+, você concorda com esta política de privacidade.</p>
+        <a href="curiosidades.html" class="card">
+            <img src="imgs/bg_btn_curiosidades.png" alt="Curiosidades">
+        </a>
+
+        <a href="rota.html" class="card">
+            <img src="imgs/bg_btn_rota_cultural.png" alt="Rota Cultural">
+        </a>
+
+        <a href="hospedagem.html" class="card">
+            <img src="imgs/bg_btn_hospegem.png" alt="Hospedagem">
+        </a>
+
+        <a href="alimentacao.html" class="card">
+            <img src="imgs/bg_btn_alimentacao.png" alt="Alimentação">
+        </a>
+
+    </div>
+
+    <!-- QUIZ / LENDAS -->
+    <a href="lendas.html" class="highlight">
+        <img src="imgs/bg_btn_lenda_quiz.png" alt="Lendas de Tupã e Quiz">
+    </a>
+
+</section>
+
+<footer>
+    © 2026 • Explore Tupã • Turismo e Cultura
+</footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+}
+</script>
 
 </body>
 </html>
