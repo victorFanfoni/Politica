@@ -1,4 +1,4 @@
-const CACHE_NAME = "explore-tupa-v1";
+const CACHE_NAME = "explore-tupa-v2";
 
 // Use caminhos relativos (sem a barra inicial) para maior compatibilidade
 const FILES_TO_CACHE = [
