@@ -1,10 +1,9 @@
 {
   "name": "Explore Tupã",
   "short_name": "Explore Tupã",
-  "description": "Turismo, cultura e história da cidade de Tupã",
-  "start_url": "index.html",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f4e3b2",
+  "background_color": "#f1dfae",
   "theme_color": "#d19a3d",
   "orientation": "portrait",
   "icons": [

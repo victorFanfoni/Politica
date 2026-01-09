@@ -1,203 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Tupã</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#d19a3d">
+<title>Explore Tupã</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d19a3d">
 
-    <style>
-        :root {
-            /* Cores baseadas na imagem de referência */
-            --bg-body: linear-gradient(180deg, #e5c685 0%, #f1dfae 100%);
-            --card-bg: #fffbe6;
-            --text-dark: #3d2b1f;
-            --border-hero: #8c764d;
-        }
+<!-- iOS PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Explore Tupã">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background: var(--bg-body);
-            background-attachment: fixed;
-            min-height: 100vh;
-            color: var(--text-dark);
-            padding-bottom: 40px;
-        }
+<script>
+let deferredPrompt;
 
-        /* HEADER */
-        header {
-            padding: 25px 20px;
-            text-align: center;
-        }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
 
-        header h1 {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById("installBtn").style.display = "block";
+});
 
-        /* HERO (IMAGEM COM MOLDURA) */
-        .hero-container {
-            max-width: 450px;
-            margin: 0 auto 30px;
-            padding: 0 20px;
-        }
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.finally(() => {
+      deferredPrompt = null;
+      document.getElementById("installBtn").style.display = "none";
+    });
+  }
+}
 
-        .hero-frame {
-            border: 10px solid var(--border-hero);
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+// iOS
+function isIOS() {
+  return /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+}
+function isStandalone() {
+  return window.navigator.standalone === true;
+}
+window.onload = () => {
+  if (isIOS() && !isStandalone()) {
+    document.getElementById("iosMsg").style.display = "block";
+  }
+};
+</script>
 
-        .hero-frame img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
+<style>
+:root {
+  --bg-body: linear-gradient(180deg, #e5c685 0%, #f1dfae 100%);
+  --card-bg: #fffbe6;
+  --text-dark: #3d2b1f;
+  --border-hero: #8c764d;
+}
 
-        /* GRID DE BOTÕES */
-        .container {
-            max-width: 500px;
-            margin: auto;
-            padding: 0 20px;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
-            gap: 15px;
-        }
+body {
+  background: var(--bg-body);
+  min-height: 100vh;
+  color: var(--text-dark);
+  padding-bottom: 40px;
+}
 
+header {
+  padding: 25px 20px;
+  text-align: center;
+}
 
+#installBtn {
+  display: none;
+  margin: 15px auto 0;
+  padding: 12px 20px;
+  background: #8c764d;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+}
 
-        .card:active {
-            transform: scale(0.95);
-        }
+#iosMsg {
+  display: none;
+  background: #fff3cd;
+  padding: 15px;
+  margin: 15px auto;
+  border-radius: 10px;
+  max-width: 320px;
+  text-align: center;
+}
 
-        .card span {
-            font-size: 11px;
-            font-weight: 700;
-            line-height: 1.2;
-            word-wrap: break-word;
-        }
+.hero-container {
+  max-width: 450px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
 
-        /* BOTÃO LARGO (LENDAS E QUIZ) */
-        .highlight {
-            grid-column: span 3;
-            background: var(--card-bg);
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 25px;
-            border-radius: 20px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
+.hero-frame {
+  border: 10px solid var(--border-hero);
+  border-radius: 40px;
+  overflow: hidden;
+}
 
-        .highlight .icon-left { height: 45px; }
-        .highlight .icon-right { height: 35px; }
+.hero-frame img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 
-        /* FOOTER */
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 12px;
-            opacity: 0.8;
-            padding: 20px;
-        }
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 0 20px;
+}
 
-        /* AJUSTES RESPONSIVOS */
-        @media (max-width: 380px) {
-            .grid { gap: 10px; }
-            .card span { font-size: 9px; }
-            .highlight { font-size: 16px; }
-        }
-    </style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.card:active {
+  transform: scale(0.95);
+}
+
+.highlight {
+  grid-column: span 3;
+  background: var(--card-bg);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.highlight .icon-left { height: 45px; }
+.highlight .icon-right { height: 35px; }
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.8;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Explore Tupã</h1>
-    </header>
+<header>
+  <h1>Explore Tupã</h1>
+  <button id="installBtn" onclick="installApp()">Adicionar à Tela Inicial</button>
+</header>
 
-    <div class="hero-container">
-        <div class="hero-frame">
-            <img src="imgs/igreja_matriz_de_sao_pedro_em_tupa.jpg" alt="Igreja Matriz de São Pedro">
-        </div>
-    </div>
+<div id="iosMsg">
+  <strong>Instale este app:</strong><br>
+  Toque em <strong>Compartilhar</strong> e depois <strong>Adicionar à Tela de Início</strong>.
+</div>
 
-    <section class="container">
-        <div class="grid">
-            
-            <a href="raizes.html" class="card">
-                <img src="imgs/bg_btn_historia_tupa.png" alt="">
-            </a>
+<div class="hero-container">
+  <div class="hero-frame">
+    <img src="imgs/igreja_matriz_de_sao_pedro_em_tupa.jpg" alt="Igreja Matriz de São Pedro">
+  </div>
+</div>
 
-            <a href="legado.html" class="card">
-                <img src="imgs/legado.png" alt="">
-            </a>
+<section class="container">
+  <div class="grid">
 
-            <a href="trilhas.html" class="card">
-                <img src="imgs/bg_btn_trilha.png" alt="">
-            </a>
+    <a href="raizes.html" class="card"><img src="imgs/bg_btn_historia_tupa.png"></a>
+    <a href="legado.html" class="card"><img src="imgs/legado.png"></a>
+    <a href="trilhas.html" class="card"><img src="imgs/bg_btn_trilha.png"></a>
+    <a href="orgaos.html" class="card"><img src="imgs/organs_publicos.png"></a>
+    <a href="fotos.html" class="card"><img src="imgs/bg_btn_fotos_antigas.png"></a>
+    <a href="curiosidades.html" class="card"><img src="imgs/bg_btn_curiosidades.png"></a>
+    <a href="rota.html" class="card"><img src="imgs/bg_btn_rota_cultural.png"></a>
+    <a href="hospedagem.html" class="card"><img src="imgs/bg_btn_hospegem.png"></a>
+    <a href="alimentacao.html" class="card"><img src="imgs/bg_btn_alimentacao.png"></a>
 
-            <a href="orgaos.html" class="card">
-                <img src="imgs/organs_publicos.png" alt="">
-            </a>
+    <a href="lendas.html" class="highlight">
+      <img src="imgs/cobra_icon.png" class="icon-left">
+      <span>Lendas e Quiz</span>
+      <img src="imgs/quiz_stamp.png" class="icon-right">
+    </a>
 
-            <a href="fotos.html" class="card">
-                <img src="imgs/bg_btn_fotos_antigas.png" alt="">
-            </a>
+  </div>
+</section>
 
-            <a href="curiosidades.html" class="card">
-                <img src="imgs/bg_btn_curiosidades.png" alt="">
-            </a>
+<footer>
+© 2026 • Explore Tupã • Turismo e Cultura
+</footer>
 
-            <a href="rota.html" class="card">
-                <img src="imgs/bg_btn_rota_cultural.png" alt="">
-            </a>
-
-            <a href="hospedagem.html" class="card">
-                <img src="imgs/bg_btn_hospegem.png" alt="">
-            </a>
-
-            <a href="alimentacao.html" class="card">
-                <img src="imgs/bg_btn_alimentacao.png" alt="">
-            </a>
-
-            <a href="lendas.html" class="highlight">
-                <img src="imgs/cobra_icon.png" class="icon-left" alt="">
-                <span>Lendas e Quiz</span>
-                <img src="imgs/quiz_stamp.png" class="icon-right" alt="">
-            </a>
-
-        </div>
-    </section>
-
-    <footer>
-        © 2026 • Explore Tupã • Turismo e Cultura
-    </footer>
-
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("service-worker.js");
-        }
-    </script>
 </body>
 </html>
