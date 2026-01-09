@@ -21,7 +21,7 @@
 <script>
 let deferredPrompt;
 
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   navigator.serviceWorker.register('service-worker.js');
 }
 
@@ -70,16 +70,22 @@ window.onload = () => {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* CENTRALIZA TUDO */
 body {
   background: var(--bg-body);
   min-height: 100vh;
   color: var(--text-dark);
   padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* HEADER */
 header {
   padding: 25px 20px;
   text-align: center;
+  width: 100%;
 }
 
 #installBtn {
@@ -103,9 +109,11 @@ header {
   text-align: center;
 }
 
+/* HERO */
 .hero-container {
   max-width: 450px;
-  margin: 0 auto 30px;
+  width: 100%;
+  margin-bottom: 30px;
   padding: 0 20px;
 }
 
@@ -121,16 +129,23 @@ header {
   object-fit: cover;
 }
 
+/* CONTEÚDO */
 .container {
   max-width: 500px;
-  margin: auto;
+  width: 100%;
   padding: 0 20px;
 }
 
+/* GRID CENTRALIZADO */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+  justify-items: center;
+}
+
+.card {
+  width: 100%;
 }
 
 .card img {
@@ -142,20 +157,23 @@ header {
   transform: scale(0.95);
 }
 
+/* BOTÃO DESTAQUE CENTRAL */
 .highlight {
   grid-column: span 3;
+  width: 100%;
   margin-top: 10px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 55px;
   border-radius: 20px;
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 700;
-  font-size: 18px;
 }
 
+.highlight img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* FOOTER */
 footer {
   margin-top: 40px;
   text-align: center;
@@ -197,7 +215,8 @@ footer {
     <a href="alimentacao.html" class="card"><img src="imgs/bg_btn_alimentacao.png"></a>
 
     <a href="lendas.html" class="highlight">
-      <img src="imgs/bg_btn_lenda_quiz.png"></a>
+      <img src="imgs/bg_btn_lenda_quiz.png">
+    </a>
 
   </div>
 </section>
