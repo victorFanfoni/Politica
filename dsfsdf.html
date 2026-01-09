@@ -7,11 +7,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <style>
 :root{
     --bg:#f4e3b2;
     --primary:#8b5a00;
-    --accent:#e3b04b;
     --card:#fff6dc;
     --header:#d19a3d;
 }
@@ -28,92 +28,38 @@ body{
     color:#333;
 }
 
-/* ===== HEADER / TOOLBAR ===== */
+/* HEADER */
 header{
     background:linear-gradient(90deg,#e2b25b,#d19a3d);
-    box-shadow:0 4px 12px rgba(0,0,0,.18);
-}
-
-.header-content{
-    max-width:1100px;
-    margin:auto;
-    padding:18px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-header h1{
+    padding:18px;
+    text-align:center;
     font-size:22px;
     font-weight:700;
 }
 
-/* ===== CONTAINER ===== */
+/* CONTAINER */
 .container{
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
-    padding:40px 20px 60px;
+    padding:30px 20px;
 }
 
-/* ===== HERO ===== */
-.hero{
-    margin-bottom:35px;
+/* TITULO */
+.title{
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:16px;
 }
 
+/* HERO */
 .hero img{
     width:100%;
-    height:260px;
+    height:200px;
     object-fit:cover;
-    border-radius:22px;
-    box-shadow:0 10px 24px rgba(0,0,0,.25);
-}
-
-/* ===== INTRO ===== */
-.intro{
-    max-width:720px;
-    margin:0 auto 50px;
-    text-align:center;
-    font-size:16px;
-    line-height:1.7;
-}
-
-/* ===== CARD ===== */
-.card{
-    background:var(--card);
-    border-radius:22px;
-    padding:32px;
-    margin-bottom:45px;
-    box-shadow:0 8px 22px rgba(0,0,0,.15);
-}
-
-.card h2{
-    text-align:center;
-    color:var(--primary);
-    margin-bottom:22px;
-    font-size:20px;
-}
-
-/* ===== GALERIA ===== */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    grid-template-columns: repeat(3, 1fr);
-    gap:18px;
-    margin-bottom:20px;
-}
-
-.gallery img{
-    width:100%;
-    height:170px;
-    object-fit:cover;
-    border-radius:16px;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
-
-/* ===== TEXTO ===== */
-.card p{
-    font-size:16px;
-    line-height:1.7;
+    border-radius:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    margin-bottom:24px;
 }
 
 /* ===== BOTÃO ===== */
@@ -134,6 +80,51 @@ header h1{
 .btn:hover{
     background:#d19a3d;
     transform:translateY(-2px);
+}
+
+/* DIVISOR */
+.divider{
+    height:1px;
+    background:#555;
+    margin:24px 0;
+}
+
+/* CARD */
+.card{
+    background:var(--card);
+    border-radius:20px;
+    padding:24px;
+    margin-bottom:28px;
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:var(--primary);
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+/* GALERIA */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns: repeat(3, 1fr);
+    gap:14px;
+    margin:16px 0;
+}
+
+.gallery img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+/* TEXTO */
+.card p{
+    font-size:16px;
+    line-height:1.7;
+    white-space:pre-line;
 }
 
 /* FOOTER FIXO */
@@ -162,22 +153,6 @@ header h1{
     font-size:14px;
     padding-bottom:80px;
 }
-
-/* ===== RESPONSIVO ===== */
-@media(max-width:768px){
-    header h1{
-        font-size:20px;
-    }
-
-    .hero img{
-        height:220px;
-    }
-
-    .card{
-        padding:26px;
-    }
-}
-
 </style>
 </head>
 
@@ -293,12 +268,9 @@ header h1{
 
 </section>
 
-<div class="page-footer">
-    <p>Conteúdo adaptado por Victor Fanfoni</p>
-    <p>📍 Tupã – Memória Viva dos Povos Originários</p>
-</div>
-
-</section>
+<footer>
+    Conteúdo adaptado por Victor Fanfoni • 📍 Tupã – Capital Nacional da Fotografia
+</footer>
 
 <div class="footer">
     <a href="index.html">🏠 Voltar para Início</a>
