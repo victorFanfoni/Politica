@@ -58,7 +58,6 @@ window.onload = () => {
 <style>
 :root {
   --bg-body: linear-gradient(180deg, #e5c685 0%, #f1dfae 100%);
-  --card-bg: #fffbe6;
   --text-dark: #3d2b1f;
   --border-hero: #8c764d;
 }
@@ -70,12 +69,15 @@ window.onload = () => {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* CENTRALIZA TUDO */
+/* SEM SCROLL */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   background: var(--bg-body);
-  min-height: 100vh;
   color: var(--text-dark);
-  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,102 +85,107 @@ body {
 
 /* HEADER */
 header {
-  padding: 25px 20px;
+  padding: 8px;
   text-align: center;
-  width: 100%;
+}
+
+header h1 {
+  font-size: 21px;
+  font-weight: 700;
 }
 
 #installBtn {
   display: none;
-  margin: 15px auto 0;
-  padding: 12px 20px;
+  margin-top: 6px;
+  padding: 6px 14px;
   background: #8c764d;
   color: #fff;
   border: none;
-  border-radius: 12px;
-  font-weight: 700;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 #iosMsg {
   display: none;
   background: #fff3cd;
-  padding: 15px;
-  margin: 15px auto;
+  padding: 8px;
+  margin: 6px 16px;
   border-radius: 10px;
-  max-width: 320px;
+  font-size: 12px;
   text-align: center;
+  max-width: 320px;
 }
 
-/* HERO */
+/* HERO (BEM MAIOR) */
 .hero-container {
-  max-width: 450px;
   width: 100%;
-  margin-bottom: 30px;
-  padding: 0 20px;
+  max-width: 420px;
+  padding: 4px 16px;
 }
 
 .hero-frame {
-  border: 10px solid var(--border-hero);
-  border-radius: 40px;
+  position: relative;
+  border: 7px solid var(--border-hero);
+  border-radius: 26px;
   overflow: hidden;
+  height: 200px; /* AUMENTADO */
 }
 
 .hero-frame img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 220px;
+  height: 200px; /* AUMENTADO */
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-frame img.active {
+  opacity: 1;
 }
 
 /* CONTEÚDO */
 .container {
-  max-width: 500px;
   width: 100%;
-  padding: 0 20px;
+  max-width: 420px;
+  padding: 0 16px;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-/* GRID CENTRALIZADO */
+/* GRID (BOTÕES MENORES) */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  justify-items: center;
-}
-
-.card {
+  gap: 6px; /* MENOR */
   width: 100%;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.card:active {
-  transform: scale(0.95);
-}
-
-/* BOTÃO DESTAQUE CENTRAL */
-.highlight {
-  grid-column: span 3;
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-}
-
+.card img,
 .highlight img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 12px; /* MENOR */
+}
+
+.highlight {
+  grid-column: span 3;
+}
+
+.card:active,
+.highlight:active {
+  transform: scale(0.93);
 }
 
 /* FOOTER */
 footer {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   opacity: 0.8;
+  padding: 4px 0 8px;
+  text-align: center;
 }
 </style>
 </head>
@@ -198,6 +205,8 @@ footer {
 <div class="hero-container">
   <div class="hero-frame">
     <img src="imgs/igreja_matriz_de_sao_pedro_em_tupa.jpg" alt="Igreja Matriz de São Pedro">
+    <img src="imgs/vity.jpg" alt="Vista da cidade">
+    <img src="imgs/city.jpg" alt="Vista urbana">
   </div>
 </div>
 
@@ -224,6 +233,20 @@ footer {
 <footer>
 © 2026 • Explore Tupã • Turismo e Cultura
 </footer>
+
+<!-- SLIDER HERO -->
+<script>
+const heroImages = document.querySelectorAll('.hero-frame img');
+let currentHero = 0;
+
+heroImages[currentHero].classList.add('active');
+
+setInterval(() => {
+  heroImages[currentHero].classList.remove('active');
+  currentHero = (currentHero + 1) % heroImages.length;
+  heroImages[currentHero].classList.add('active');
+}, 4000);
+</script>
 
 </body>
 </html>
